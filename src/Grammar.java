@@ -5,6 +5,8 @@
 
 import javafx.util.Pair;
 
+import java.lang.reflect.Array;
+
 public class Grammar {
     // G = (V, T, S, P)
     private ArrayList<String> variables;
@@ -19,7 +21,32 @@ public class Grammar {
         this.productions = p;
     }
 
-    
+    /*
+    Theorem 6.5
+    1. Remove L-productions
+    2. Remove unit-productions
+    3. Remove useless productions
+     */
+
+    public void removeLproductions() {
+        for (int i = 0; i < this.productions.getSize(); i++) {
+            if (containsL(this.productions.get(i))) {
+                String containsLambda = this.productions.get(i).getKey();
+                int lambdaIndex = this.productions.get(i).getValue().indexOf("L");
+                System.out.println(lambdaIndex);
+                this.productions.get(i).getValue().remove(lambdaIndex);
+            }
+        }
+    }
+
+    private boolean containsL(Pair<String, ArrayList<String>> pair) {
+        for (int i = 0; i < pair.getValue().getSize(); i++) {
+            if (pair.getValue().get(i) == "L")
+                return true;
+        }
+
+        return false;
+    }
 
     public String toString() {
         StringBuilder result = new StringBuilder();
