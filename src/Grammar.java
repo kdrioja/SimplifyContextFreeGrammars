@@ -50,4 +50,22 @@ public class Grammar {
     public void setProductions(ArrayList<Pair<String, ArrayList<String>>> productions) {
         this.productions = productions;
     }
+
+    public String toString() {
+        StringBuilder result = new StringBuilder();
+
+        if (this.productions.getSize() == 0) {
+            result.append("No productions.");
+        }
+        else {
+            for (int i = 0; i < this.productions.getSize(); i++) {
+                result.append(this.productions.get(i).getKey());
+                result.append(" -> ");
+                result.append(this.productions.get(i).getValue());
+                result.append("\n");
+            }
+        }
+
+        return result.toString();
+    }
 }

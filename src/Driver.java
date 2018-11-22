@@ -27,14 +27,30 @@ public class Driver {
         Stransitions.add("B");
         Stransitions.add("C");
         p.add(new Pair<>("S", Stransitions));
-        
 
+        ArrayList<String> Atransitions = new ArrayList<>();
+        Atransitions.add("aB");
+        Atransitions.add("L");
+        p.add(new Pair<>("A", Atransitions));
 
+        ArrayList<String> Btransitions = new ArrayList<>();
+        Btransitions.add("Aa");
+        p.add(new Pair<>("B", Btransitions));
+
+        ArrayList<String> Ctransitions = new ArrayList<>();
+        Ctransitions.add("cCD");
+        p.add(new Pair<>("C", Ctransitions));
+
+        ArrayList<String> Dtransitions = new ArrayList<>();
+        Dtransitions.add("ddd");
+        Dtransitions.add("Cd");
+        p.add(new Pair<>("D", Dtransitions));
 
         Grammar grammar = new Grammar(v, t, "S", p);
 
+        System.out.println(grammar.toString());
     }
     public static void main(String[] args) {
-
+        testCase1();
     }
 }
