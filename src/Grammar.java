@@ -19,37 +19,7 @@ public class Grammar {
         this.productions = p;
     }
 
-    public ArrayList<String> getVariables() {
-        return variables;
-    }
-
-    public void setVariables(ArrayList<String> variables) {
-        this.variables = variables;
-    }
-
-    public ArrayList<String> getTerminals() {
-        return terminals;
-    }
-
-    public void setTerminals(ArrayList<String> terminals) {
-        this.terminals = terminals;
-    }
-
-    public String getStart() {
-        return start;
-    }
-
-    public void setStart(String start) {
-        this.start = start;
-    }
-
-    public ArrayList<Pair<String, ArrayList<String>>> getProductions() {
-        return productions;
-    }
-
-    public void setProductions(ArrayList<Pair<String, ArrayList<String>>> productions) {
-        this.productions = productions;
-    }
+    
 
     public String toString() {
         StringBuilder result = new StringBuilder();
@@ -65,7 +35,6 @@ public class Grammar {
                 result.append("\n");
             }
         }
-
         return result.toString();
     }
 }
