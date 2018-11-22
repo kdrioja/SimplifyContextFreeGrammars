@@ -31,10 +31,15 @@ public class Grammar {
     public void removeLproductions() {
         for (int i = 0; i < this.productions.getSize(); i++) {
             if (containsL(this.productions.get(i))) {
-                String containsLambda = this.productions.get(i).getKey();
+                String keyContainsLambda = this.productions.get(i).getKey();
                 int lambdaIndex = this.productions.get(i).getValue().indexOf("L");
                 System.out.println(lambdaIndex);
                 this.productions.get(i).getValue().remove(lambdaIndex);
+
+                for (int j = 0; j < this.productions.getSize(); j++) {
+                    Pair currenPair = this.productions.get(j);
+                    
+                }
             }
         }
     }

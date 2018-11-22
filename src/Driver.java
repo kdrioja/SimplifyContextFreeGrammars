@@ -52,9 +52,11 @@ public class Driver {
         grammar.removeLproductions();
         System.out.println(grammar.toString());
     }
+
     public static void main(String[] args) {
         testCase1();
 
+        /*
         ArrayList<String> test = new ArrayList<>();
         test.add("aB");
         test.add("L");
@@ -62,6 +64,6 @@ public class Driver {
         System.out.println(test);
         test.remove(1);
         System.out.println(test);
-
+        */
     }
 }
