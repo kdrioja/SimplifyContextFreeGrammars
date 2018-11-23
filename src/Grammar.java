@@ -5,8 +5,6 @@
 
 import javafx.util.Pair;
 
-import java.lang.reflect.Array;
-
 public class Grammar {
     // G = (V, T, S, P)
     private ArrayList<String> variables;
@@ -75,9 +73,9 @@ public class Grammar {
                         for (int p = 0; p < tempProductions.getSize(); p++) {
                             addProduction(this.productions.get(i).getValue(), tempProductions.get(p));
                         }
+                        this.productions.get(i).getValue().remove(j);
+                        j--;
                     }
-
-                    //this.productions.get(i).getValue().remove(j);
                 }
             }
         }

@@ -85,11 +85,11 @@ public class ArrayList <E> implements BareBonesArrayList<E> {
         }
 
         E removed = this.myArray[index];
-        this.myArray[index] = null;
 
-        for (int i = index; i < size - 1; i++) {
+        for (int i = index; i < this.size - 1; i++) {
             this.myArray[i] = this.myArray[i + 1];
         }
+        this.myArray[size - 1] = null;
         size--;
         return removed;
     }
