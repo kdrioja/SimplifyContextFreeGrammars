@@ -5,8 +5,6 @@
 
 import javafx.util.Pair;
 
-import java.lang.reflect.Array;
-
 public class Grammar {
     // G = (V, T, S, P)
     private ArrayList<String> variables;
@@ -28,7 +26,7 @@ public class Grammar {
     3. Remove useless productions
      */
 
-    public void removeLproductions() {
+    public void removeLProductions() {
         System.out.println("Removing lambda productions...");
         for (int i = 0; i < this.productions.getSize(); i++) {
             if (containsL(this.productions.get(i))) {
@@ -62,12 +60,32 @@ public class Grammar {
         }
     }
 
+    public void removeUnitProductions() {
+        System.out.println("Removing unit productions...");
+        for (int i = 0; i < this.productions.getSize(); i++) {
+            for (int j = 0; j < this.productions.get(i).getValue().getSize(); j++) {
+                if (this.productions.get(i).getValue().get(j).length() == 1) {
+                    if (isUnitProduction(this.productions.get(i).getValue().get(j))) {
+                        System.out.println(this.productions.get(i).getValue().get(j));
+                    }
+                }
+            }
+        }
+    }
+
+    private boolean isUnitProduction(String production) {
+        for (int i = 0; i < this.variables.getSize(); i++) {
+            if (production.equals(this.variables.get(i)))
+                return true;
+        }
+        return false;
+    }
+
     private boolean containsL(Pair<String, ArrayList<String>> pair) {
         for (int i = 0; i < pair.getValue().getSize(); i++) {
             if (pair.getValue().get(i) == "L")
                 return true;
         }
-
         return false;
     }
 

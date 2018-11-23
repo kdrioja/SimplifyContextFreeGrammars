@@ -48,8 +48,11 @@ public class Driver {
 
         Grammar grammar = new Grammar(v, t, "S", p);
 
+        System.out.println("Exercise 7:");
         System.out.println(grammar.toString());
-        grammar.removeLproductions();
+        grammar.removeLProductions();
+        System.out.println(grammar.toString());
+        grammar.removeUnitProductions();
         System.out.println(grammar.toString());
     }
 
@@ -87,8 +90,11 @@ public class Driver {
 
         Grammar grammar = new Grammar(v, t, "S", p);
 
+        System.out.println("Exercise 10:");
         System.out.println(grammar.toString());
-        grammar.removeLproductions();
+        grammar.removeLProductions();
+        System.out.println(grammar.toString());
+        grammar.removeUnitProductions();
         System.out.println(grammar.toString());
     }
 
