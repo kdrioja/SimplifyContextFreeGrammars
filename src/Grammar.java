@@ -28,7 +28,7 @@ public class Grammar {
     3. Remove useless productions
      */
 
-    public void removeLProductions() {
+    public void removeLambdaProductions() {
         System.out.println("Removing lambda productions...");
         for (int i = 0; i < this.productions.getSize(); i++) {
             if (containsL(this.productions.get(i))) {

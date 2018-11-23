@@ -50,7 +50,7 @@ public class Driver {
 
         System.out.println("Exercise 7:");
         System.out.println(grammar.toString());
-        grammar.removeLProductions();
+        grammar.removeLambdaProductions();
         System.out.println(grammar.toString());
         grammar.removeUnitProductions();
         System.out.println(grammar.toString());
@@ -92,7 +92,7 @@ public class Driver {
 
         System.out.println("Exercise 10:");
         System.out.println(grammar.toString());
-        grammar.removeLProductions();
+        grammar.removeLambdaProductions();
         System.out.println(grammar.toString());
         grammar.removeUnitProductions();
         System.out.println(grammar.toString());
