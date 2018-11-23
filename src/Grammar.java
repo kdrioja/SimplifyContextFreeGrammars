@@ -29,16 +29,34 @@ public class Grammar {
      */
 
     public void removeLproductions() {
+        System.out.println("Removing lambda productions...");
         for (int i = 0; i < this.productions.getSize(); i++) {
             if (containsL(this.productions.get(i))) {
                 String keyContainsLambda = this.productions.get(i).getKey();
                 int lambdaIndex = this.productions.get(i).getValue().indexOf("L");
-                System.out.println(lambdaIndex);
+                //System.out.println(lambdaIndex);
                 this.productions.get(i).getValue().remove(lambdaIndex);
 
                 for (int j = 0; j < this.productions.getSize(); j++) {
-                    Pair currenPair = this.productions.get(j);
-                    
+                    ArrayList<String> transitions = this.productions.get(j).getValue();
+
+                    for (int k = 0; k < transitions.getSize(); k++) {
+                        if (transitions.get(k).contains(keyContainsLambda)) {
+                            //System.out.println(transitions.get(k));
+                            StringBuilder newTransition = new StringBuilder();
+                            char[] temp = transitions.get(k).toCharArray();
+
+                            for (int c = 0; c < transitions.get(k).length(); c++) {
+                                if (temp[c] != keyContainsLambda.charAt(0)) {
+                                    newTransition.append(temp[c]);
+                                }
+                            }
+
+                            if (this.productions.get(j).getValue().indexOf(newTransition.toString()) == -1) {
+                                this.productions.get(j).getValue().add(newTransition.toString());
+                            }
+                        }
+                    }
                 }
             }
         }

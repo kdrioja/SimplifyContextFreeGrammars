@@ -8,11 +8,11 @@ import javafx.util.Pair;
 public class Driver {
     public static void testCase1() {
         ArrayList<String> v = new ArrayList<>();
+        v.add("S");
         v.add("A");
         v.add("B");
         v.add("C");
         v.add("D");
-        v.add("S");
 
         ArrayList<String> t = new ArrayList<>();
         t.add("a");
@@ -53,17 +53,47 @@ public class Driver {
         System.out.println(grammar.toString());
     }
 
+    public static void testCase2() {
+        ArrayList<String> v = new ArrayList<>();
+        v.add("S");
+        v.add("A");
+        v.add("B");
+        v.add("C");
+
+        ArrayList<String> t = new ArrayList<>();
+        t.add("a");
+        t.add("b");
+        t.add("L"); //lambda
+
+        ArrayList<Pair<String, ArrayList<String>>> p = new ArrayList<>();
+        ArrayList<String> Stransitions = new ArrayList<>();
+        Stransitions.add("aA");
+        Stransitions.add("aBB");
+        p.add(new Pair<>("S", Stransitions));
+
+        ArrayList<String> Atransitions = new ArrayList<>();
+        Atransitions.add("aaA");
+        Atransitions.add("L");
+        p.add(new Pair<>("A", Atransitions));
+
+        ArrayList<String> Btransitions = new ArrayList<>();
+        Btransitions.add("bB");
+        Btransitions.add("bbC");
+        p.add(new Pair<>("B", Btransitions));
+
+        ArrayList<String> Ctransitions = new ArrayList<>();
+        Ctransitions.add("B");
+        p.add(new Pair<>("C", Ctransitions));
+
+        Grammar grammar = new Grammar(v, t, "S", p);
+
+        System.out.println(grammar.toString());
+        grammar.removeLproductions();
+        System.out.println(grammar.toString());
+    }
+
     public static void main(String[] args) {
         testCase1();
-
-        /*
-        ArrayList<String> test = new ArrayList<>();
-        test.add("aB");
-        test.add("L");
-
-        System.out.println(test);
-        test.remove(1);
-        System.out.println(test);
-        */
+        testCase2();
     }
 }
