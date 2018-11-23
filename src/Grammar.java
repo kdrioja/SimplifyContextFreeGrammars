@@ -5,6 +5,8 @@
 
 import javafx.util.Pair;
 
+import java.lang.reflect.Array;
+
 public class Grammar {
     // G = (V, T, S, P)
     private ArrayList<String> variables;
@@ -66,11 +68,41 @@ public class Grammar {
             for (int j = 0; j < this.productions.get(i).getValue().getSize(); j++) {
                 if (this.productions.get(i).getValue().get(j).length() == 1) {
                     if (isUnitProduction(this.productions.get(i).getValue().get(j))) {
-                        System.out.println(this.productions.get(i).getValue().get(j));
+                        //System.out.println(this.productions.get(i).getValue().get(j));
+                        ArrayList<String> tempProductions = getUnitsProductions(this.productions.get(i).getValue().get(j));
+                        //System.out.println(tempProductions);
+
+                        for (int p = 0; p < tempProductions.getSize(); p++) {
+                            addProduction(this.productions.get(i).getValue(), tempProductions.get(p));
+                        }
                     }
+
+                    //this.productions.get(i).getValue().remove(j);
                 }
             }
         }
+    }
+
+    private void addProduction(ArrayList<String> productions, String newP) {
+        boolean flag = false;
+        for (int i = 0; i < productions.getSize(); i++) {
+            if (productions.get(i).equals(newP)) {
+                flag = true;
+            }
+        }
+
+        if (!flag) {
+            productions.add(newP);
+        }
+    }
+
+    private ArrayList<String> getUnitsProductions(String V) {
+        for (int i = 0; i < this.productions.getSize(); i++) {
+            if (this.productions.get(i).getKey() == V) {
+                return this.productions.get(i).getValue();
+            }
+        }
+        return null;
     }
 
     private boolean isUnitProduction(String production) {
