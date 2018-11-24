@@ -80,7 +80,8 @@ public class Grammar {
     }
 
     public void removeUselessProductions() {
-
+        System.out.println("Removing useless productions...");
+        
     }
 
     private void addProduction(ArrayList<String> productions, String newP) {

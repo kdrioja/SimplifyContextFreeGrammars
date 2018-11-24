@@ -49,11 +49,13 @@ public class Driver {
         Grammar grammar = new Grammar(v, t, "S", p);
 
         System.out.println("Exercise 7:");
-        System.out.println(grammar.toString());
+        System.out.println(grammar);
         grammar.removeLambdaProductions();
-        System.out.println(grammar.toString());
+        System.out.println(grammar);
         grammar.removeUnitProductions();
-        System.out.println(grammar.toString());
+        System.out.println(grammar);
+        grammar.removeUselessProductions();
+        System.out.println(grammar);
     }
 
     public static void testCase2() {
@@ -91,11 +93,13 @@ public class Driver {
         Grammar grammar = new Grammar(v, t, "S", p);
 
         System.out.println("Exercise 10:");
-        System.out.println(grammar.toString());
+        System.out.println(grammar);
         grammar.removeLambdaProductions();
-        System.out.println(grammar.toString());
+        System.out.println(grammar);
         grammar.removeUnitProductions();
-        System.out.println(grammar.toString());
+        System.out.println(grammar);
+        grammar.removeUselessProductions();
+        System.out.println(grammar);
     }
 
     public static void main(String[] args) {
