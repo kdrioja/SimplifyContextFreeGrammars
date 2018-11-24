@@ -80,12 +80,16 @@ public class Grammar {
     }
 
     public void removeUselessProductions() {
+        /*
+        A variable is useless either because it cannot be reached 
+         */
         System.out.println("Removing useless productions...");
-        
+
     }
 
     private void addProduction(ArrayList<String> productions, String newP) {
         boolean flag = false;
+
         for (int i = 0; i < productions.getSize(); i++) {
             if (productions.get(i).equals(newP)) {
                 flag = true;
