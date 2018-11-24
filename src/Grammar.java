@@ -81,6 +81,10 @@ public class Grammar {
         }
     }
 
+    public void removeUselessProductions() {
+
+    }
+    
     private void addProduction(ArrayList<String> productions, String newP) {
         boolean flag = false;
         for (int i = 0; i < productions.getSize(); i++) {
