@@ -66,9 +66,7 @@ public class Grammar {
             for (int j = 0; j < this.productions.get(i).getValue().getSize(); j++) {
                 if (this.productions.get(i).getValue().get(j).length() == 1) {
                     if (isUnitProduction(this.productions.get(i).getValue().get(j))) {
-                        //System.out.println(this.productions.get(i).getValue().get(j));
                         ArrayList<String> tempProductions = getUnitsProductions(this.productions.get(i).getValue().get(j));
-                        //System.out.println(tempProductions);
 
                         for (int p = 0; p < tempProductions.getSize(); p++) {
                             addProduction(this.productions.get(i).getValue(), tempProductions.get(p));
@@ -84,7 +82,7 @@ public class Grammar {
     public void removeUselessProductions() {
 
     }
-    
+
     private void addProduction(ArrayList<String> productions, String newP) {
         boolean flag = false;
         for (int i = 0; i < productions.getSize(); i++) {
