@@ -86,21 +86,22 @@ public class Grammar {
          */
         System.out.println("Removing useless productions...");
         for (int i = 0; i < this.productions.getSize(); i++) {
-            if (!containsTerminalString(this.productions.get(i).getKey())) {
-
+            System.out.println(this.productions.get(i));
+            for (int j = 0; j < this.productions.get(i).getValue().getSize(); j++) {
+                System.out.println(this.productions.get(i).getValue().get(j));
             }
         }
 
     }
 
-    private boolean containsTerminalString(String V) {
-        ArrayList<String> productions = getUnitsProductions(V);
+    private boolean canReachTerminalString(String s) {
+        return true;
+    }
 
-        if (productions != null) {
-            for (int i = 0; i < productions.getSize(); i++) {
-                for (int j = 0; j < productions.get(i).length(); j++) {
-                    
-                }
+    private boolean isTerminal(char c) {
+        for (int i = 0; i < this.terminals.getSize(); i++) {
+            if (this.terminals.get(i).equals(String.valueOf(c))) {
+                return true;
             }
         }
         return false;
