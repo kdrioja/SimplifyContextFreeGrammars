@@ -85,7 +85,25 @@ public class Grammar {
         or it does not produce a terminal string
          */
         System.out.println("Removing useless productions...");
+        for (int i = 0; i < this.productions.getSize(); i++) {
+            if (!containsTerminalString(this.productions.get(i).getKey())) {
 
+            }
+        }
+
+    }
+
+    private boolean containsTerminalString(String V) {
+        ArrayList<String> productions = getUnitsProductions(V);
+
+        if (productions != null) {
+            for (int i = 0; i < productions.getSize(); i++) {
+                for (int j = 0; j < productions.get(i).length(); j++) {
+                    
+                }
+            }
+        }
+        return false;
     }
 
     private void addProduction(ArrayList<String> productions, String newP) {
