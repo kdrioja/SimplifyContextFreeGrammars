@@ -81,7 +81,8 @@ public class Grammar {
 
     public void removeUselessProductions() {
         /*
-        A variable is useless either because it cannot be reached 
+        A variable is useless either because it cannot be reached
+        or it does not produce a terminal string
          */
         System.out.println("Removing useless productions...");
 
