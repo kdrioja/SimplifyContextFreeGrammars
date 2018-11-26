@@ -102,6 +102,8 @@ public class Grammar {
             }
         }
         return true;
+
+        
     }
 
     private boolean isTerminal(char c) {
