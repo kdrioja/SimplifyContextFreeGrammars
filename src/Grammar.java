@@ -94,7 +94,12 @@ public class Grammar {
 
     }
 
-    private boolean canReachTerminalString(String s) {
+    private boolean canReachTerminalString(String sentential) {
+        for (int i = 0; i < sentential.length(); i++) {
+            if (!isTerminal(sentential.charAt(i))) {
+                
+            }
+        }
         return true;
     }
 
