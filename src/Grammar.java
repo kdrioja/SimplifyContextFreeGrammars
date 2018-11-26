@@ -97,7 +97,8 @@ public class Grammar {
     private boolean canReachTerminalString(String sentential) {
         for (int i = 0; i < sentential.length(); i++) {
             if (!isTerminal(sentential.charAt(i))) {
-                
+                ArrayList<String> unitProductions = getUnitsProductions(String.valueOf(sentential.charAt(i)));
+
             }
         }
         return true;
