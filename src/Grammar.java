@@ -89,6 +89,8 @@ public class Grammar {
             System.out.println(this.productions.get(i));
             for (int j = 0; j < this.productions.get(i).getValue().getSize(); j++) {
                 System.out.println(this.productions.get(i).getValue().get(j));
+                //I need to add these to a new Hash Map?
+                //Project is now due Th 11/29
             }
         }
 
@@ -103,7 +105,7 @@ public class Grammar {
         }
         return true;
 
-        
+
     }
 
     private boolean isTerminal(char c) {
