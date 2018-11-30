@@ -54,8 +54,8 @@ public class Driver {
         System.out.println(grammar);
         grammar.removeUnitProductions();
         System.out.println(grammar);
-        grammar.removeUselessProductions();
-        System.out.println(grammar);
+        //grammar.removeUselessProductions();
+        //System.out.println(grammar);
     }
 
     public static void testCase2() {
@@ -98,12 +98,12 @@ public class Driver {
         System.out.println(grammar);
         grammar.removeUnitProductions();
         System.out.println(grammar);
-        grammar.removeUselessProductions();
-        System.out.println(grammar);
+        //grammar.removeUselessProductions();
+        //System.out.println(grammar);
     }
 
     public static void main(String[] args) {
-        //testCase1();
+        testCase1();
         testCase2();
     }
 }
